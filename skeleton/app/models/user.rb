@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :cat_rental_requests,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :User
+
   validates :username, :session_token, :password_digest, presence: true
   validates :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
