@@ -44,8 +44,8 @@ class CatsController < ApplicationController
 
   def owns_cat?
     redirect_to cats_url unless current_user && current_user.cats.exists?(params[:id])
-    
   end
+
 
   private
 
