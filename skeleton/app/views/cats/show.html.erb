@@ -23,6 +23,7 @@
     <th>Status</th>
   </tr>
   <% @cat.rental_requests.order("start_date").each do |req| %>
+    <%= User.find_by(id: req.user_id).username %>
     <%= render "req_tr", req: req %>
   <% end %>
 </table>
